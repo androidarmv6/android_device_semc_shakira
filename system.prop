@@ -1,0 +1,96 @@
+#
+# Sony Ericsson XPERIA X8 aka Shakira properties
+#
+# RIL
+rild.libpath=/system/lib/libsemc_ril.so
+rild.libargs=-d/dev/smd0
+ro.telephony.ril.v3=icccardstatus,signalstrength,datacall
+ro.telephony.default_network=0
+ro.telephony.call_ring.delay=0
+ro.telephony.call_ring.multiple=false
+ro.ril.disable.power.collapse=1
+ro.ril.enable.a52=1
+ro.ril.enable.a53=1
+ro.ril.hsxpa=2
+ro.ril.gprsclass=10
+ro.ril.hep=1
+ro.ril.hsdpa.category=10
+ro.ril.hsupa.category=6
+ro.ril.enable.dtm=1
+ro.ril.enable.3g.prefix=1
+persist.ro.ril.sms_sync_sending=1
+
+# Wi-Fi
+wifi.interface=tiwlan0
+wifi.supplicant_scan_interval=180
+wifi.hotspot.ti=1
+wifi.ap.interface=tiap0
+
+# Media
+ro.media.dec.jpeg.memcap=10000000
+ro.media.enc.file.format=3gp,mp4
+ro.media.enc.vid.codec=m4v,h263
+ro.media.enc.vid.h263.width=176,640
+ro.media.enc.vid.h263.height=144,480
+ro.media.enc.vid.h263.bps=64000,1600000
+ro.media.enc.vid.h263.fps=1,30
+ro.media.enc.vid.m4v.width=176,640
+ro.media.enc.vid.m4v.height=144,480
+ro.media.enc.vid.m4v.bps=64000,1600000
+ro.media.enc.vid.m4v.fps=1,30
+ro.media.dec.aud.wma.enabled=1
+ro.media.dec.vid.wmv.enabled=1
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=true
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-record=true
+
+# Camera
+persist.pmem.camera=4000000
+debug.camcorder.disablemeta=1
+
+# Performance
+debug.composition.type=mdp
+debug.performance.tuning=1
+debug.sf.hw=1
+debug.gr.numframebuffers=3
+persist.service.zram=1
+ro.compcache.default=18
+video.accelerate.hw=1
+persist.sys.use_16bpp_alpha=1
+persist.sys.use_dithering=1
+hwui.disable_vsync=true
+debug.sf.no_hw_vsync=1
+hwui.print_config=choice
+debug.hwui.render_dirty_regions=false
+debug.enabletr=false
+com.qc.hardware=true
+windowsmgr.max_events_per_sec=150
+pm.sleep_mode=2
+persist.sys.force_hw_ui=true
+ro.max.fling_velocity=4000
+debug.qctwa.statusbar=1
+debug.qctwa.preservebuf=1
+
+# LCD
+ro.sf.lcd_density=160
+ro.opengles.version=131072
+settings.display.autobacklight=1
+
+# USB
+persist.sys.usb.config=mass_storage,adb
+persist.service.adb.enable=1
+persist.android.strictmode=0
+
+# Dalvik
+dalvik.vm.dexopt-flags=m=y
+dalvik.vm.checkjni=false
+dalvik.vm.heapsize=32m
+dalvik.vm.execution-mode=int:jit
+dalvik.vm.dexopt-data-only=1
+dalvik.gc.type-precise
+
+# GPS
+ro.ril.def.agps.mode=2
+ro.ril.def.agps.feature=1
