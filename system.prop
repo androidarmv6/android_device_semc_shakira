@@ -94,3 +94,6 @@ dalvik.gc.type-precise
 # GPS
 ro.ril.def.agps.mode=2
 ro.ril.def.agps.feature=1
+
+# Extra stuff
+ro.data_usage_show=true
