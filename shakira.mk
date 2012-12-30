@@ -29,7 +29,7 @@ endif
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
--include device/semc/msm7x27-common/common.mk
+include device/semc/msm7x27-common/common.mk
 
 # Shakira uses medium-density artwork where available
 PRODUCT_AAPT_CONFIG := normal mdpi
