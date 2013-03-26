@@ -12,18 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+# Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/tiny.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 $(call inherit-product, vendor/google/gapps_armv6_tiny.mk)
-
-
-# Shakira uses medium-density artwork where available
-PRODUCT_AAPT_CONFIG := normal mdpi
-PRODUCT_AAPT_PREF_CONFIG := mdpi
-$(call inherit-product, device/mdpi-common/mdpi.mk)
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/bin/tiap_cu:system/bin/tiap_cu \
@@ -35,9 +28,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     $(LOCAL_PATH)/prebuilt/usr/keychars/systemconnector.kcm.bin:system/usr/keychars/systemconnector.kcm.bin
 
+# Shakira uses medium-density artwork where available
+PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+$(call inherit-product, device/mdpi-common/mdpi.mk)
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 # Inherit products (Most specific first)
-$(call inherit-product, vendor/semc/shakira/shakira-vendor-blobs.mk)
+$(call inherit-product, vendor/semc/shakira/shakira-vendor.mk)
 $(call inherit-product, device/semc/msm7x27-common/msm7x27.mk)
+$(call inherit-product, vendor/semc/msm7x27-common/semc-common-blobs.mk)
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := shakira

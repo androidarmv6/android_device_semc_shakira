@@ -1,11 +1,12 @@
 # Specify phone tech before including full_phone
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/tiny.mk)
-
-# Device shakira
+# Inherit device configuration for shakira
 $(call inherit-product, device/semc/shakira/shakira.mk)
+
+TARGET_SCREEN_HEIGHT := 480
+TARGET_SCREEN_WIDTH := 320
+$(call inherit-product, vendor/cm/config/mini.mk)
 
 # Setup device configuration
 PRODUCT_RELEASE_NAME := X8
@@ -14,12 +15,6 @@ PRODUCT_NAME := cm_shakira
 PRODUCT_BRAND := SEMC
 PRODUCT_MODEL := X8
 PRODUCT_MANUFACTURER := Sony Ericsson
-
-# Release data
-TARGET_NO_LIVEWALLPAPERS := false
-TARGET_BOOTANIMATION_NAME := vertical-320x480
-
-PRODUCT_VERSION_DEVICE_SPECIFIC := -SEMC-X8
 
 #Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += \
