@@ -15,24 +15,15 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
-$(call inherit-product, device/mdpi-common/mdpi.mk)
 $(call inherit-product, vendor/google/gapps_armv6_tiny.mk)
 
-# Discard inherited values and use our own instead.
-PRODUCT_NAME := shakira
-PRODUCT_DEVICE := shakira
-PRODUCT_MODEL := E15i
-
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
-
-DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
-
-include device/semc/msm7x27-common/common.mk
 
 # Shakira uses medium-density artwork where available
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
-PRODUCT_LOCALES += mdpi
+$(call inherit-product, device/mdpi-common/mdpi.mk)
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/bin/tiap_cu:system/bin/tiap_cu \
@@ -43,3 +34,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/usr/idc/cyttsp-spi.idc:system/usr/idc/cyttsp-spi.idc \
     $(LOCAL_PATH)/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     $(LOCAL_PATH)/prebuilt/usr/keychars/systemconnector.kcm.bin:system/usr/keychars/systemconnector.kcm.bin
+
+# Inherit products (Most specific first)
+$(call inherit-product, vendor/semc/shakira/shakira-vendor-blobs.mk)
+$(call inherit-product, device/semc/msm7x27-common/msm7x27.mk)
+
+# Discard inherited values and use our own instead.
+PRODUCT_NAME := shakira
+PRODUCT_DEVICE := shakira
+PRODUCT_MODEL := E15i
