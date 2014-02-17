@@ -26,6 +26,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     $(LOCAL_PATH)/prebuilt/usr/keychars/systemconnector.kcm.bin:system/usr/keychars/systemconnector.kcm.bin
 
+#Ramdisk for shakira
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/init.delta.rc:root/init.delta.rc \
+    $(LOCAL_PATH)/ramdisk/init.delta.usb.rc:root/init.delta.usb.rc \
+    $(LOCAL_PATH)/ramdisk/post_hw_config.sh:root/post_hw_config.sh \
+    $(LOCAL_PATH)/ramdisk/ueventd.delta.rc:root/ueventd.delta.rc
+
 # Shakira uses medium-density artwork where available
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
